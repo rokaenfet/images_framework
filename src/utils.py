@@ -10,6 +10,7 @@ import warnings
 import rasterio
 import numpy as np
 from enum import Enum
+from shapely import geometry
 
 
 class DepthMode(Enum):
@@ -136,7 +137,6 @@ def clip_images(seq, tile_shape, overlap_shape):
 
 def geometry2numpy(geom):
     # Convert geometry from shapely to numpy
-    from shapely import geometry
     coords = np.array(geometry.mapping(geom)['coordinates'], dtype=object)
     if geom.geom_type is 'Point':
         contours = [np.array([[[coords[0], coords[1]]]], dtype=int)]

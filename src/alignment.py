@@ -61,7 +61,9 @@ class Alignment(Component):
             # Detection().show(viewer, ann, pred)
             image_idx = [np.array_equal(img_pred.filename, f) & np.array_equal(img_pred.tile, t) for f, t in ann_order].index(True)
             for objs_idx, objs_val in enumerate([ann.images[image_idx].objects, img_pred.objects]):
+                # print(f"objs_val type: {type(objs_val)}\nobjs_val: {objs_val}")
                 for obj in objs_val:
+                    # print(f"obj type: {obj}\nobj: {obj}")
                     # Draw axis
                     (xmin, ymin, xmax, ymax) = obj.bb
                     contour = np.array([[xmin, ymin], [xmax, ymin], [xmax, ymax], [xmin, ymax]], dtype=np.int32)

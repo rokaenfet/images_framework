@@ -115,8 +115,8 @@ class Viewer:
             canvas = frame if canvas is None else np.hstack((canvas, frame))  # stack images in sequence horizontally
         cv2.namedWindow(self._window_title, cv2.WINDOW_AUTOSIZE | cv2.WINDOW_KEEPRATIO | cv2.WINDOW_GUI_NORMAL)
         cv2.moveWindow(self._window_title, 0, 0)
-        cv2.imshow(self._window_title, canvas)
-        cv2.waitKey(delay)
+        # cv2.imshow(self._window_title, canvas)
+        # cv2.waitKey(delay)
         # cv2.destroyWindow(self._window_title)
         self._geoimages.clear()
 
