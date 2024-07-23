@@ -32,7 +32,14 @@ class Viewer:
         self._window_title = window_title
 
     def set_image(self, image):
+        """
+        Viewer.set_image()
+        Following code has been changed...
         img, profile = load_geoimage(image.filename, DepthMode.UBYTE, ChannelsMode.THREE)
+        >   img, profile = image.image, ""
+        """
+        # img, profile = load_geoimage(image.filename, DepthMode.UBYTE, ChannelsMode.THREE)
+        img, profile = image.image, ""
         # Add black border
         if img.shape[0] < image.tile[3] or img.shape[1] < image.tile[2]:
             tile_shape = (image.tile[3]-image.tile[1], image.tile[2]-image.tile[0])
